@@ -1,0 +1,839 @@
+//
+//ARTIFACT SYSTEM BY BDAVITS
+//
+//Some assembly required.
+//
+/////////////////////////////////////
+
+///////////////
+//ARTIFACTS////
+///////////////
+[ITEMDEF i_artifact_magickey]
+NAME=Magic Key
+ID=i_key_magic
+TYPE=t_script
+
+ON=@CREATE
+COLOR=07a1
+
+CATEGORY=Uberon
+SUBSECTION=Artifacts
+DESCRIPTION=Magic Key
+
+On=@CLICK
+message @07a1 [Artifact]
+Return 0
+
+ON=@DCLICK
+SRC.SYSMESSAGE @07a1 Try combining this with other artifacts at a shrine.
+RETURN 1
+
+[ITEMDEF i_artifact_wyrmsheart]
+NAME=Dragon Heart
+ID=i_reag_wyrm_heart
+TYPE=t_script
+
+ON=@CREATE
+COLOR=07a1
+
+CATEGORY=Uberon
+SUBSECTION=Artifacts
+DESCRIPTION=Dragon Heart
+
+On=@CLICK
+message @07a1 [Artifact]
+Return 0
+
+ON=@DCLICK
+SRC.SYSMESSAGE @07a1 Try combining this with other artifacts at a shrine.
+RETURN 1
+
+[ITEMDEF i_artifact_tygereye]
+NAME=Eye of the Tyger
+ID=i_reag_pumice
+TYPE=t_script
+
+ON=@CREATE
+COLOR=07a1
+
+CATEGORY=Uberon
+SUBSECTION=Artifacts
+DESCRIPTION=Eye of the Tiger
+
+On=@CLICK
+message @07a1 [Artifact]
+Return 0
+
+ON=@DCLICK
+SRC.SYSMESSAGE @07a1 Try combining this with other artifacts at a shrine.
+RETURN 1
+
+[ITEMDEF i_artifact_orcsblood]
+NAME=Orc's Blood
+ID=i_reag_blood_vial
+TYPE=t_script
+
+ON=@CREATE
+COLOR=07a1
+
+CATEGORY=Uberon
+SUBSECTION=Artifacts
+DESCRIPTION=Orc's Blood
+
+On=@CLICK
+message @07a1 [Artifact]
+Return 0
+
+ON=@DCLICK
+SRC.SYSMESSAGE @07a1 Try combining this with other artifacts at a shrine.
+RETURN 1
+
+[ITEMDEF i_artifact_warlockbeads]
+NAME=Warlock's Beads
+ID=0dfa
+TYPE=t_bone
+
+ON=@CREATE
+COLOR=07a1
+
+CATEGORY=Uberon
+SUBSECTION=Artifacts
+DESCRIPTION=Warlock's Beads
+
+On=@CLICK
+message @07a1 [Artifact]
+Return 0
+
+ON=@DCLICK
+SRC.SYSMESSAGE @07a1 Try combining this with other artifacts at a shrine.
+RETURN 1
+
+[ITEMDEF i_artifact_soulstone]
+NAME=Soul Stone
+ID=I_VIRTSTONE_6
+TYPE=t_script
+
+ON=@CREATE
+COLOR=07a1
+
+CATEGORY=Uberon
+SUBSECTION=Artifacts
+DESCRIPTION=Soul Stone
+
+On=@CLICK
+message @07a1 [Artifact]
+Return 0
+
+ON=@DCLICK
+SRC.SYSMESSAGE @07a1 Try combining this with other artifacts at a shrine.
+RETURN 1
+
+[TEMPLATE tm_artifact]
+container=i_bag
+color=07a1
+ITEM={i_artifact_soulstone 2 i_artifact_warlockbeads 3 i_artifact_orcsblood 3 i_artifact_tygereye 3 i_artifact_magickey 10 i_artifact_wyrmsheart 1}
+CATEGORY=Item Templates 
+SUBSECTION=Artifactmobs
+DESCRIPTION=Artifact
+///////////////
+//SUMMONSTONE//
+///////////////
+
+[ITEMDEF i_Summonstone2]
+NAME=Stone of Summoning
+ID=i_crystal_red
+TYPE=t_normal
+
+ON=@CREATE
+COLOR=00818
+
+CATEGORY=Uberon
+SUBSECTION=Artifacts
+DESCRIPTION=Summoning stone
+
+ON=@DCLICK
+SRC.DIALOG D_SUMMONINGS
+RETURN 1
+
+//////////////
+//DIALOG//////
+//////////////
+
+[DIALOG d_Summonings]
+0,0
+page 0
+resizepic 100 0 2620 550 550
+resizepic 113 115 3500 521 414
+resizepic 130 322 3500 250 200
+resizepic 170 332 3500 170 30
+resizepic 130 130 3500 250 200
+resizepic 370 321 3500 250 200
+resizepic 170 140 3500 170 30
+resizepic 410 140 3500 170 30
+resizepic 410 332 3500 170 30
+resizepic 370 130 3500 250 200
+resizepic 225 15 83 300 42
+text 298 25 42 0
+resizepic 250 60 83 250 42
+text 287 70 47 1
+gumppic 229 274 20492
+text 222 140 5 2
+text 443 140 5 3
+text 222 333 5 4
+text 463 333 5 5
+gumppic 477 467 20486
+gumppic 50 10 10440
+gumppic 618 10 10441
+gumppic 477 274 20495
+gumppic 229 467 20485
+text 180 173 0 6
+button 155 175 1209 1210 1 0 1
+text 180 203 0 7
+button 155 205 1209 1210 1 0 2
+button 155 245 1209 1210 1 0 3
+text 180 233 0 8
+text 180 253 0 9
+button 395 185 1209 1210 1 0 4
+text 420 173 0 10
+text 420 193 0 11
+button 395 215 1209 1210 1 0 5
+text 420 213 0 12
+text 420 213 0 13
+button 395 245 1209 1210 1 0 6
+text 420 243 0 14
+button 155 375 1209 1210 1 0 7
+button 155 425 1209 1210 1 0 8
+text 180 363 0 15
+text 180 383 0 16
+text 180 410 0 17
+text 180 430 0 18
+button 395 375 1209 1210 1 0 9
+button 395 435 1209 1210 1 0 10
+text 420 363 0 19
+text 420 383 0 20
+text 420 410 0 21
+text 420 425 0 22
+text 420 440 0 23
+text 420 455 0 24
+
+[DIALOG d_Summonings text]
+Uberon Summoning Stone
+Choose artifacts to combine
+Easy Mobs
+Challenging Mobs
+Hard Mobs
+Uber Mobs
+3x Magic Key
+2x Magic Key + 1x Orc's Blood
+1x Magic Key + 2x Warlock's
+Beads
+2x Orc's Blood + 2x Warlock's
+Beads
+3
+3x Magic Key + 1x Tyger Eye
+2x Orc's Blood + 1x Tyger Eye
+2x Warlock's Beads  
++ 1x Soul Stone
+2x Soul Stone  
++ 2x Orc's Blood
+2x Soul stone + 2x Magic Key
++ 1x Wyrm's Heart
+1x Tyger Eye + 1x Orc's Blood
++ 1x Warlock's Beads 
++1x Soul Stone +1x Wyrm's 
+Heart
+
+[DIALOG d_summonings button]
+ON=1
+// Easy1
+// 
+IF (<SRC.RESTEST 3 i_artifact_magickey>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_key_faerie
+ 	new.p <p>
+SRC.CONSUME=3 i_artifact_magickey
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=2
+// Easy2
+// 
+IF (<SRC.RESTEST 2 i_artifact_magickey>) && (<SRC.RESTEST i_artifact_orcsblood>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_vile_orc
+ 	new.p <p>
+SRC.CONSUME=2 i_artifact_magickey
+SRC.CONSUME=i_artifact_orcsblood
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=3
+// Easy3
+// 
+IF (<SRC.RESTEST i_artifact_magickey>) && (<SRC.RESTEST 2 i_artifact_warlockbeads>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_warlock
+ 	new.p <p>
+SRC.CONSUME=i_artifact_magickey
+SRC.CONSUME=2 i_artifact_warlockbeads
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+
+ON=4
+// Challenge1// 
+IF (<SRC.RESTEST 2 i_artifact_orcsblood>) && (<SRC.RESTEST 2 i_artifact_warlockbeads>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_warlock
+ 	new.p <p>
+SRC.CONSUME=2 i_artifact_orcsblood
+SRC.CONSUME=2 i_artifact_warlockbeads
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=5
+// Challenge2
+// 
+IF (<SRC.RESTEST 3 i_artifact_magickey>) && (<SRC.RESTEST i_artifact_tygereye>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_war_tyger
+ 	new.p <p>
+SRC.CONSUME=3 i_artifact_magickey
+SRC.CONSUME=i_artifact_tygereye
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=6
+// Challenge3
+// 
+IF (<SRC.RESTEST 2 i_artifact_orcsblood>) && (<SRC.RESTEST i_artifact_tygereye>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_chaos_elemental
+ 	new.p <p>
+SRC.CONSUME=2 i_artifact_orcsblood
+SRC.CONSUME=i_artifact_tygereye
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=7
+// Hard1
+// 
+IF (<SRC.RESTEST 2 i_artifact_warlockbeads>) && (<SRC.RESTEST i_artifact_soulstone>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_chaos_elemental
+ 	new.p <p>
+SRC.CONSUME=2 i_artifact_warlockbeads
+SRC.CONSUME=i_artifact_soulstone
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=8
+// Hard2
+// 
+IF (<SRC.RESTEST 2 i_artifact_orcsblood>) && (<SRC.RESTEST i_artifact_soulstone>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_soulless_one
+ 	new.p <p>
+SRC.CONSUME=2 i_artifact_orcsblood
+SRC.CONSUME=i_artifact_soulstone
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=9
+// Uber1
+// 
+IF (<SRC.RESTEST 2 i_artifact_magickey>) && (<SRC.RESTEST 2 i_artifact_soulstone>) && (<SRC.RESTEST i_artifact_wyrmsheart>)
+SAY @07a1 You have summoned an evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_Corpse_eater
+ 	new.p <p>
+SRC.CONSUME=2 i_artifact_magickey
+SRC.CONSUME=2 i_artifact_soulstone
+SRC.CONSUME=i_artifact_wyrmsheart
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+
+ON=10
+// Uber2
+// 
+IF (<SRC.RESTEST i_artifact_orcsblood>) && (<SRC.RESTEST i_artifact_soulstone>) && (<SRC.RESTEST i_artifact_wyrmsheart>) && (<SRC.RESTEST i_artifact_warlockbeads>) && (<SRC.RESTEST i_artifact_tygereye>)
+SAY @07a1 You have summoned the ultimate evil pressence!
+ 	SRC.SOUND SND_SPELL_POLYMORPH
+	effect 2,i_fx_glow_spike,20,30,1
+	serv.newnpc=c_uber_mob
+ 	new.p <p>
+SRC.CONSUME=i_artifact_soulstone
+SRC.CONSUME=i_artifact_wyrmsheart
+SRC.CONSUME=i_artifact_orcsblood
+SRC.CONSUME=i_artifact_warlockbeads
+SRC.CONSUME=i_artifact_tygereye
+RETURN 1
+ELSE
+SAY @07a1 You need all the artifacts to complete this summoning.. Foolish <src.NAME>!
+ 	SRC.SOUND SND_SPELL_dispel
+RETURN 1
+ENDIF
+/////////////
+//TEMPLATES//
+/////////////
+
+[TEMPLATE tm_easymob]
+container=i_bag
+color=0176
+ITEM=I_REWARD_TOKEN,{50 100}
+ITEM={I_PG_BOW 1 I_PG_KRYSS 1 I_PG_MACE 1 I_PG_SWORD 1 I_25fishing_pole 1 i_25hatchet 1 i_artifact_magickey 1 i_sword_magebane 1 tm_bane_random 1 i_sword_long 1 i_tome_int 1 i_check_1000 1 i_orc_machete 1 i_war_mask 1 } , R1
+CATEGORY=Item Templates 
+SUBSECTION=Artifactmobs
+DESCRIPTION=Easy
+
+[TEMPLATE tm_challengemob]
+container=i_bag
+color=00c2
+ITEM=I_REWARD_TOKEN,{125 200}
+ITEM={I_air_ele_sword 1 i_arcane_bow 1 i_artifact_magickey 1 i_artifact_orcsblood 1 I_arachnid_SHIELD 1 i_spiderfang_dagger 1 i_spider_bolb 1 i_tome_dex 1 i_check_1000 1 i_fire_ele_sword 1 i_lifedrain_spear 1 I_water_ele_sword 1 I_frost_sword 1 I_EARTH_SASH 1 I_boots_stealth 1 I_25pickaxe 1 I_25hammer 1 I_MANADRAIN_SPEAR 1 I_woodmans_bow 1 I_CRAFTMAN_APRON 1 } , R1
+CATEGORY=Item Templates 
+SUBSECTION=Artifactmobs
+DESCRIPTION=Challenging
+
+[TEMPLATE tm_hardmob]
+container=i_bag
+color=0014
+ITEM=I_REWARD_TOKEN,{300 400}
+ITEM={I_air_ele_mace 1 i_devil_longsword 1 i_devil_bow 1 i_artifact_magickey 1 i_angel_longsword 1 I_angel_bow 1 tm_arcane_random 1 i_arachnid_spikes 1 i_lava_sword 1 i_tome_dex 1 i_check_5000 1 i_fire_ele_sword 1 i_longsword_life_drain 1 I_dagger_life_drain 1 I_frost_hammer 1 I_ice_lance 1 I_crystaline_war_cleaver 1 I_yumi_bow 1 I_air_staff 1 I_air_cloak 1 I_kitsune_belt 1 I_CRAFTMAN_APRON 1 } , R1
+CATEGORY=Item Templates 
+SUBSECTION=Artifactmobs
+DESCRIPTION=Hard
+
+[TEMPLATE tm_ubermob]
+container=i_bag
+color=07a1
+ITEM=I_REWARD_TOKEN,{500 700}
+ITEM={ i_kitsune_belt 1 i_artifact_magickey 1 i_angel_mace 1 I_angel_hxbow 1 i_devil_mace 1 I_devil_hxbow 1 tm_arcane_random 1 tm_shadow_random 1 i_air_bow 1 i_tome_str 1 i_check_5000 1 i_exodrone_scalpel 1 i_Longsword_life_drain 1 I_dagger_life_drain 1 I_exodrone_xbow 1 I_deed_trashbarrel 1 I_crystaline_war_cleaver 1 I_darkness_Ring 1 I_crystaline_ring 1 I_desert_ring 1 I_fire_ring 1 I_CRAFTMAN_APRON 1 I_earth_axe 1 i_healing_shield 1 i_mage_shield 1 i_assassins_jitte 1 i_abyss_hammer 1 i_bow_acid 1 i_acid_kryss 1 i_ninja_sai 1 i_samurai_bokuto 1 i_dragons_claw 1 i_dragons_blade 1 i_bloodfire_mace 1 i_minotaur_mace 1 i_musket 1 i_scythe_life_drain 1 i_devil_ring 1 }
+CATEGORY=Item Templates 
+SUBSECTION=Artifactmobs
+DESCRIPTION=Uber
+
+//////////
+//MOBS////
+//////////
+
+
+//EASY//
+
+
+
+[CHARDEF c_key_faerie] 
+NAME=Key Faerie
+ID=c_forest_queen
+ARMOR=200
+CAN=MT_WALK|MT_FLY
+DAM=40,50
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Key Faerie
+
+ON=@CREATE
+Events +e_npc
+COLOR 00
+STR 500
+MAXHITS=550
+DEX 100
+INT 10
+FAME 1000
+KARMA -5000
+WRESTLING=100.0
+Tactics=100.0
+MAGICRESISTANCE=100.0 0
+MAGERY 300.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{500 750}
+ITEM=tm_easymob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+[CHARDEF c_vile_orc] 
+NAME=Vile Orc
+ID=c_yomotsu_elder
+ARMOR=150
+CAN=MT_WALK|MT_RUN
+DAM=45,60
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Vile Orc
+
+ON=@CREATE
+Events +e_npc
+COLOR 00bb4
+STR 550
+MAXHITS=600
+DEX 120
+INT 10
+FAME 1000
+KARMA -5000
+WRESTLING=100.0
+Tactics=100.0
+MAGICRESISTANCE=100.0 0
+MAGERY 300.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{750 1000}
+ITEM=tm_easymob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+[CHARDEF c_warlock] 
+NAME=Warlock
+ID=c_fan_dancer
+ARMOR=100
+CAN=MT_WALK|MT_RUN
+DAM=60,75
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Warlock
+
+ON=@CREATE
+Events +e_npc
+COLOR 00bb4
+STR 550
+MAXHITS=600
+DEX 120
+INT 100
+FAME 1000
+KARMA -5000
+WRESTLING=300.0
+Tactics=100.0
+MAGICRESISTANCE=500.0 0
+MAGERY 1000.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{750 1000}
+ITEM=tm_easymob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+//CHALLENGING//
+
+[CHARDEF c_orc_spellbind] 
+NAME=Spellbound Orc
+ID=c_troglodyte
+ARMOR=200
+CAN=MT_WALK|MT_RUN
+DAM=60,75
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Orc Spellbind
+
+ON=@CREATE
+Events +e_npc
+COLOR 00c2
+STR 600
+MAXHITS=800
+DEX 120
+INT 10
+FAME 1000
+KARMA -5000
+WRESTLING=300.0
+Tactics=200.0
+MAGICRESISTANCE=500.0 0
+MAGERY 0.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{1000 1250}
+ITEM=tm_challengemob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+[CHARDEF c_war_tyger] 
+NAME=Tyger of War
+ID=c_revenant_lion
+ARMOR=200
+CAN=MT_WALK|MT_RUN
+DAM=60,75
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=War Tyger
+
+ON=@CREATE
+Events +e_npc
+COLOR 00
+STR 600
+MAXHITS=800
+DEX 120
+INT 10
+FAME 1000
+KARMA -5000
+WRESTLING=300.0
+Tactics=200.0
+MAGICRESISTANCE=500.0 0
+MAGERY 0.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{1000 1250}
+ITEM=tm_challengemob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+[CHARDEF c_chaos_elemental] 
+NAME=Chaos Elemental
+ID=c_rai_ju
+ARMOR=200
+CAN=MT_WALK|MT_RUN
+DAM=60,75
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Chaos Elemental
+
+ON=@CREATE
+Events +e_npc
+COLOR 00815
+STR 600
+MAXHITS=800
+DEX 120
+INT 10
+FAME 1000
+KARMA -5000
+WRESTLING=300.0
+Tactics=200.0
+MAGICRESISTANCE=500.0 0
+MAGERY 0.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{1000 1250}
+ITEM=tm_challengemob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+//HARD//
+
+[CHARDEF c_Ravenous_oni] 
+NAME=Ravenous Oni
+ID=c_oni
+ARMOR=200
+CAN=MT_WALK|MT_RUN
+DAM=100,125
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Ravenous Oni
+
+ON=@CREATE
+Events +e_npc
+COLOR 0081f
+STR 1000
+MAXHITS=1500
+DEX 200
+INT 10
+FAME 1000
+KARMA -5000
+WRESTLING=300.0
+Tactics=200.0
+MAGICRESISTANCE=500.0 0
+MAGERY 0.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{2500 2750}
+ITEM=tm_hardmob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+[CHARDEF c_soulless_one] 
+NAME=Soulless One
+ID=c_oni
+ARMOR=200
+CAN=MT_WALK|MT_RUN
+DAM=100,120
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Soulless One
+
+ON=@CREATE
+Events +e_npc
+COLOR 00819
+STR 1200
+MAXHITS=1500
+DEX 200
+INT 10
+FAME 1000
+KARMA -5000
+WRESTLING=300.0
+Tactics=200.0
+MAGICRESISTANCE=500.0 0
+MAGERY 0.0
+
+ON=@NPCRESTOCK
+ITEM=I_GOLD,{2500 2750}
+ITEM=tm_hardmob
+
+ON=@NPCSeeNewPlayer
+ATTACK
+
+//UBER//
+
+[CHARDEF c_corpse_eater]
+NAME=Corpse Eater
+CAN=MT_WALK|MT_RUN|MT_fire_immune
+DAM=150,200
+ARMOR=350
+ID=c_giant_black_widow
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Corpse Eater
+
+ON=@Create
+Events=+e_npc
+COLOR=07a1
+EVENTS=+e_angels
+EVENTS=+e_poison_immune
+EVENTS=+e_displacement
+NPC=brain_monster
+STR=3500
+MAXHITS=9000
+DEX=1500
+INT=100
+allskills 400.0
+magery 0
+STEALTH 0
+FAME=9000
+KARMA=-9500
+
+ON=@npcrestock
+ITEM=i_platinum
+ITEM=tm_ubermob
+
+on=@gethit
+if (Rand(2))
+	if !(RAND(5))
+		emote Reflecting the damage
+	endif
+	src.hits <src.hits>+-{<argn>-10 <EVAL <ARGN>+20>}
+	src.sound snd_spell_harm
+else
+	if (<flags>&statf_poisoned)
+		spelleffect 11 10000
+	endif
+	attack
+endif
+
+on=@Death
+sound 0c8
+
+[CHARDEF c_uber_mob]
+NAME=Uber Golem
+CAN=MT_WALK|MT_RUN|MT_fire_immune
+DAM=200,250
+ARMOR=250
+ID=c_iron_golem
+
+CATEGORY=Uberon
+SUBSECTION=Artifact Summons
+DESCRIPTION=Uber Golem
+
+ON=@Create
+Events=+e_npc
+COLOR=07a1
+EVENTS=+e_angels
+EVENTS=+e_poison_immune
+EVENTS=+e_monster_zostrich
+EVENTS=+e_displacement
+NPC=brain_monster
+STR=3500
+MAXHITS=7500
+DEX=1500
+INT=100
+allskills 400.0
+magery 0
+STEALTH 0
+FAME=9000
+KARMA=-9500
+
+ON=@npcrestock
+ITEM=i_platinum
+ITEM=tm_ubermob
+
+on=@gethit
+if (Rand(2))
+	if !(RAND(5))
+		emote Reflecting the damage
+	endif
+	src.hits <src.hits>+-{<argn>-15 <EVAL <ARGN>+20>}
+	src.sound snd_spell_harm
+else
+	if (<flags>&statf_poisoned)
+		spelleffect 11 10000
+	endif
+	attack
+endif
+
+on=@Death
+sound 0c8
+
+[EOF]
