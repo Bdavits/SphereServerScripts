@@ -1,0 +1,127 @@
+// Basic Chat - BDavits
+//
+// Just plug 'n' play!
+//
+// ON=@Death
+//	if (<tag0.chat>) && !(<isgm>)
+//		f_deathscream
+//	endif
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+[plevel 1]
+chat	//turns on & off
+c 	//command prefix to use it  (.c text) 
+g	//guild only chat (gm's can hear this also)
+
+[PLEVEL 2]
+cban	//to ban
+cunban	//to unban
+s	//staff chat
+
+[FUNCTION chat]
+IF (<tag0.chat>)
+	tag.chat=
+	sysmessage @07ad Chat disabled
+	else
+	tag.chat=1
+	SERV.ALLCLIENTS chat_user
+	sysmessage @07ad Chat enabled (<eval <src.ctag.chat_user>> users)
+	sysmessage @07ad Use .c [message] to talk.
+endif
+src.ctag.chat_user=
+
+[FUNCTION chat_user]
+// List players in CTAGs on the caller
+if (<account.plevel> > <src.account.plevel>) || !(<tag0.chat>)
+	return
+else
+	src.ctag0.chat_user += 1
+endif
+
+[function c]
+if (strmatch(*.com,<args>) || (strmatch(*.*.*.*,<args>)
+  sysmessage @07a1 advertising over chat is prohibited.
+  return 1
+  endif
+IF !(<tag0.chat>)
+	src.sysmessage @00170 You must enable chat first use .chat/chat button to toggle chat on and off
+	return 1
+ENDIF
+IF (<tag0.chatban>)
+	src.sysmessage @002b You are banned from chat and cannot send the message!
+	return 1
+ENDIF
+SERV.ALLCLIENTS chatsend <args>
+
+
+[FUNCTION chatsend]
+IF (<tag0.chat>)
+	IF !(<SRC.ISGM>)
+		sysmessage @007a1 [Chat]:(<src.name>): <args>
+	ELSE
+		sysmessage @002b [Chat]:(<def.admin_plevel_<src.account.plevel>> <src.name>): <args>	
+	ENDIF
+ENDIF
+
+
+[FUNCTION cban]
+SRC.SYSMESSAGE Who do you wish to ban from the chat channel?
+TARGETF f_chatban
+
+[FUNCTION f_chatban]
+OBJ=<ARGO>
+IF (<OBJ.ISPLAYER>) 
+	IF !(<OBJ.TAG0.CHATBAN>)
+	OBJ.TAG.CHATBAN=1
+	OBJ.SYSMESSAGE @779 You have been banned from chat by (<def.admin_plevel_<src.account.plevel>> <src.name>)
+	SRC.SYSMESSAGE This person is now banned from chat
+	ELSE
+	SRC.SYSMESSAGE This person is already banned from chat
+	ENDIF
+ENDIF
+
+[FUNCTION cunban]
+SRC.SYSMESSAGE Who do you wish to unban from the chat channel?
+TARGETF f_chatunban
+
+[FUNCTION f_chatunban]
+OBJ=<ARGO>
+IF (<OBJ.ISPLAYER>) 
+	IF !(<OBJ.TAG0.CHATBAN>)
+	SRC.SYSMESSAGE This person is not banned from chat!
+	ELSE
+	OBJ.TAG.CHATBAN=
+	OBJ.SYSMESSAGE @779 You have been unbanned from chat by (<def.admin_plevel_<src.account.plevel>> <src.name>)
+	SRC.SYSMESSAGE This person is now unbanned
+	ENDIF
+ENDIF
+
+[FUNCTION g]
+IF (<guild>)
+	SERV.ALLCLIENTS guildchat <args>
+ENDIF
+
+
+[FUNCTION guildchat]
+IF (<guild>==<src.guild>) || (<isgm>)
+	SYSMESSAGE @157 [<src.memoryfindtype.memory_guild.link.abbrev>]:(<src.name>): <args> 
+ENDIF
+
+
+[FUNCTION s]
+IF (<src.account.plevel> > 1)
+	SERV.ALLCLIENTS staffchat <args>
+ENDIF
+
+
+[FUNCTION staffchat]
+IF (<account.plevel> > 1)
+	SYSMESSAGE @0482 [Staff]:(<def.admin_plevel_<src.account.plevel>> <src.name>): <args>
+ENDIF
+
+[FUNCTION f_deathscream]
+IF (<TAG0.CHAT>) 
+	SYSMESSAGE @0482 You hear <src.name>'s death cry echo through the lands
+ENDIF
+
+[EOF]
